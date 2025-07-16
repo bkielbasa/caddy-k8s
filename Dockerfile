@@ -1,4 +1,4 @@
-FROM golang:1.22 AS builder
+FROM golang:1.24 AS builder
 
 # Avoid Git prompt failure
 ENV GIT_TERMINAL_PROMPT=0
