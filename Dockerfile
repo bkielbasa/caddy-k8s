@@ -1,14 +1,12 @@
 # --- Builder stage with Go and xcaddy ---
-FROM golang:1.22 as builder
+FROM golang:1.24 AS builder
 
-# Install xcaddy
 RUN go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
+ENV PATH="/go/bin:${PATH}"
 
-# Build Caddy with the k8s plugin
 RUN xcaddy build \
   --with github.com/caddyserver/caddy-k8s/v2
 
-# --- Final stage with minimal Caddy image ---
+# --- Final image with minimal Caddy binary ---
 FROM caddy:2
-
 COPY --from=builder /go/bin/caddy /usr/bin/caddy
