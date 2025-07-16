@@ -1,3 +1,4 @@
+# --- Builder stage with Go and xcaddy ---
 FROM golang:1.22 as builder
 
 # Install xcaddy
