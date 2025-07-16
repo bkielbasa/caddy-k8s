@@ -2,7 +2,7 @@ name: Build and Push Caddy with caddy-k8s Plugin
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - Dockerfile
       - .github/workflows/build-caddy-k8s.yml
