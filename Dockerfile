@@ -10,3 +10,4 @@ RUN xcaddy build \
 # --- Final stage with minimal Caddy image ---
 FROM caddy:2
 
+COPY --from=builder /go/bin/caddy /usr/bin/caddy
